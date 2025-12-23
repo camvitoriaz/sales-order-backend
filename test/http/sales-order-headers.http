@@ -1,4 +1,9 @@
 @localhost=localhost:4004/odata/v4/main
+@id=9082118f-6e3b-4b1d-b808-426fc747cfae
+@customerId=082a5240-7ffc-490b-a142-908ee17261f7
+
+@productId=03e6f195-b227-4f83-ab33-029d5102ff0f
+
 
 GET http://{{localhost}}/SalesOrderHeaders
 Content-Type: application/json
@@ -9,12 +14,22 @@ POST  http://localhost:4004/odata/v4/main/SalesOrderHeaders
 Content-Type: application/json
 
 {
-    "id": "1234"
+    "id": "{{id}}"  ,
+    "customer_id": "{{customerId}}",
+    "items": [
+        {
+            "id": "",
+            "header": "{{id}}",
+            "product": "{{productId}}",
+            "quantity": 10
+        }
+    ], 
+    "email": "cvsilva@gmail.com"
 }
 
 ###
 
-DELETE  http://localhost:4004/odata/v4/main/SalesOrderHeaders(id=5f1d1772-66a7-409c-bad2-43014de28a8b)
+DELETE  http://localhost:4004/odata/v4/main/SalesOrderHeaders(id=9082118f-6e3b-4b1d-b808-426fc747cfae)
 Content-Type: application/json
 
 ###
